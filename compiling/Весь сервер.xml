@@ -10,7 +10,7 @@
 	<property name="src" location="../java"/>
 	<property name="lib" location="../lib"/>
 	<property name="build" location="../build"/>
-	<property name="scr" location="../data"/>
+	<property name="scr" location="../data/scripts"/>
 	<property name="build.classes" location="${build}/classes"/>
 	<property name="build.scripts" location="${build}/scripts"/>
 	<property name="build.dist" location="${build}/dist"/>
@@ -27,17 +27,14 @@
 	</tstamp>
 
 	<target name="clean" description="Remove the output directories">
-
 		<delete dir="${build}" />
 	</target>
 
 	<target name="cc" description="Remove the classes directories">
-
 		<delete dir="${build}/classes"/>
 	</target>
 
 	<target name="init" description="Create the output directories.">
-
 		<mkdir dir="${build}"/>
 		<mkdir dir="${build.classes}"/>
 		<mkdir dir="${build.dist}" />
@@ -209,7 +206,6 @@
 				<include name="fake_players.list" />
 				<exclude name="loginserver.properties" />
 				<exclude name="login_telnet.properties" />
-				<exclude name="l2open-version.properties" />
 			</fileset>
 		</copy>
 
@@ -312,5 +308,4 @@
 		</copy>
 		
 	</target>
-
 </project>

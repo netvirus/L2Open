@@ -38,6 +38,7 @@
     </target>
 
     <target name="compile" depends="dir" description="Compile the source.">
+        <record name="../build/build-script.log" append="true"  loglevel="verbose" action="start"/>
         <javac destdir="${build.classes}" optimize="on" debug="on" source="1.8" target="1.8" encoding="UTF-8" nowarn="on">
             <compilerarg value="-Xlint:all"></compilerarg>
             <src path="${scr}"/>
@@ -60,6 +61,7 @@
 
 
     <target name="dist" depends="compiles, compile" description="Create jar-file">
+        <record name="../build/build-script-dist.log" append="true"  loglevel="verbose" action="start"/>
         <exec dir="${basedir}" executable="svnversion" outputproperty="build.revision" failifexecutionfails="false">
 			<arg line="-n ../data/scripts" />
 		</exec>
@@ -72,7 +74,6 @@
 			<manifest>
 				<attribute name="Build-By" value="${user.name}" />
 				<attribute name="Build-Date" value="${build.tstamp}" />
-				<attribute name="Implementation-Build" value="${build.revision}" />
 			</manifest>
         </jar>
         <delete dir="${build.classes}"/>
